@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def sentiment(request):
+    return render(request, 'sentiment/index.html', {"sentiment_url":"http://localhost:8501"})
