@@ -4,121 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Recommendation System</title>
-    <style>
-        body {
+<style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
             background-color: #1e1e1e;
             color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
         h1 {
-            text-align: center;
-            color: #ffffff;
-        }
-        .container {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .section {
-            flex: 1;
-            background: #2a2a2a;
-            padding: 16px;
-            border-radius: 6px;
-            min-width: 300px;
-            border: 1px solid #3a3a3a;
-        }
-        .section h2 {
-            color: #ffffff;
-            margin-top: 0;
-            font-size: 1.25rem;
-        }
-        input[type="text"], input[type="file"] {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0;
-            border: 1px solid #555;
-            border-radius: 4px;
-            background: #333;
-            color: #e0e0e0;
-        }
-        input[type="text"]::placeholder, input[type="file"]::placeholder {
-            color: #999;
-        }
-        button {
-            background-color: #4a90e2;
-            color: #ffffff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 4px;
-        }
-        button:hover {
-            background-color: #357abd;
-        }
-        #recommendationList {
-            list-style: none;
-            padding: 0;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        #recommendationList li {
-            padding: 8px;
-            border-bottom: 1px solid #444;
-            color: #d0d0d0;
-        }
-        .error {
-            color: #ff6b6b;
-            font-size: 0.875rem;
-        }
-        .success {
-            color: #51cf66;
-            font-size: 0.875rem;
-        }
-        .navbar {
-        background-color: #1e1e1e;
-        padding: 12px 20px;
-        border-bottom: 1px solid #3a3a3a;
-        }
-        .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        gap: 12px;
-        justify-content: flex-start;
-        }
-        .nav-button {
-        background-color: #4a90e2;
-        color: #ffffff;
-        padding: 8px 16px;
-        border-radius: 4px;
-        text-decoration: none;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: 0.9rem;
-        }
-        .nav-button:hover {
-        background-color: #357abd;
+            margin: 20px 0;
         }
         iframe {
-            width: 100%;
-            height: 600px;
+            width: 100vw;
+            height: calc(100vh - 80px); /* Adjust for h1 height and margins */
             border: none;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: block;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-    <div class="nav-container">
-        <a href="{% url 'sentiment_url' %}" class="nav-button">Sentiment</a>
-        <a href="{% url 'demo_url' %}" class="nav-button">Demo</a>
-    </div>
-    </nav>
     {% block content %}
-        <h2>This is the main page</h2>
+        <div>
+        <h1>Content Recommendation System</h1>
+        <iframe src="{{sentiment_url}}">Sentiment Analysis</iframe>
+        </div>
     {% endblock content %}
 </body>
 </html>
